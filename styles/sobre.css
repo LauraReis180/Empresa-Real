@@ -1,0 +1,136 @@
+:root {
+  --verde-limao: #7CBF42;
+  --verde-folha: #5B944D;
+  --roxo-escuro: #45265F;
+  --branco: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: var(--branco);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fundo com vídeo */
+#videoFundo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* Navbar roxa */
+.bg-roxo {
+  background-color: #45265F !important;
+}
+
+/* Efeito de brilho nos links do menu */
+.brilho {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.brilho::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #7CBF42;
+  transition: width 0.4s ease;
+}
+
+.brilho:hover::after {
+  width: 100%;
+}
+
+/* Título da página com roxo e animação */
+.titulo-rotadoacai {
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.5);
+  font-weight: bold;
+  animation: pulsar 2s ease-in-out infinite;
+}
+
+/* Animação pulsante */
+@keyframes pulsar {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Ícone de açaí (está embutido no título agora) */
+.icone-titulo {
+  font-size: 2rem;
+}
+
+/* Frase de destaque */
+.frase-destaque {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(91, 68, 120, 0.8);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Card branco elegante */
+.conteudo-card {
+  background-color: #ffffff;
+  max-width: 900px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Corpo do texto */
+.texto-corpo {
+  font-size: 1.1rem;
+  text-align: justify;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Rodapé */
+footer.bg-roxo {
+  background-color: #45265F !important;
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .titulo-rotadoacai {
+    font-size: 2rem;
+  }
+
+  .conteudo-card {
+    padding: 2rem;
+  }
+}
+
+/* Garantir cabeçalho acima do vídeo */
+header {
+  position: relative;
+  z-index: 10;
+}
+
+main {
+  position: relative;
+  z-index: 5;
+}
+
+.navbar-brand img {
+  width: 40px;
+  height: auto;
+}
+
+.navbar {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}

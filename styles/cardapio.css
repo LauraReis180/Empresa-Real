@@ -1,0 +1,191 @@
+:root {
+  --verde-limao: #7CBF42;
+  --verde-folha: #5B944D;
+  --roxo-escuro: #45265F;
+  --branco: #ffffff;
+  --cinza-claro: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: var(--roxo-escuro);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+}
+
+header, footer {
+  background-color: var(--roxo-escuro);
+  color: var(--branco);
+}
+
+.navbar {
+  background-color: var(--roxo-escuro) !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  color: var(--branco);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--verde-limao);
+}
+
+/* Menu com brilho */
+.brilho {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.brilho:hover,
+.brilho.active {
+  color: var(--verde-limao) !important;
+}
+
+.brilho:hover::after,
+.brilho.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #7CBF42, #5B944D);
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+  animation: brilhoAnim 1.5s infinite alternate;
+}
+
+@keyframes brilhoAnim {
+  0% {
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Conteúdo Cardápio */
+main.cardapio-container {
+  max-width: 1000px;
+  margin: 3rem auto 4rem;
+  padding: 0 1rem;
+  background-color: var(--cinza-claro);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(69, 38, 95, 0.15);
+}
+
+h1.cardapio-title {
+  text-align: center;
+  color: var(--verde-limao);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  user-select: none;
+  text-shadow:
+     0 0 5px rgba(124, 191, 66, 0.7),
+     0 0 10px rgba(124, 191, 66, 0.5);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--verde-folha);
+  padding-bottom: 0.3rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardapio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardapio-list li {
+  background-color: var(--branco);
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(91, 148, 77, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.cardapio-list li:hover {
+  background-color: var(--verde-limao);
+  color: var(--branco);
+  cursor: default;
+}
+
+.cardapio-list li:hover .descricao {
+  color: #dcecd1;
+}
+
+.nome-item {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.descricao {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #666666;
+  margin-left: 1rem;
+  flex-grow: 1;
+}
+
+.preco {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main.cardapio-container {
+    margin: 2rem 1rem 3rem;
+    padding: 1rem;
+  }
+
+  h1.cardapio-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .cardapio-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .preco {
+    margin-left: 0;
+    margin-top: 0.4rem;
+  }
+
+  .descricao {
+    margin-left: 0;
+    margin-top: 0.3rem;
+  }
+}

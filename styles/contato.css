@@ -1,0 +1,155 @@
+:root {
+  --verde-limao: #7CBF42;
+  --verde-folha: #5B944D;
+  --roxo-escuro: #45265F;
+  --branco: #ffffff;
+  --cinza-claro: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: var(--roxo-escuro);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+}
+
+header, footer {
+  background-color: var(--roxo-escuro);
+  color: var(--branco);
+}
+
+.navbar {
+  background-color: var(--roxo-escuro) !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  color: var(--branco);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--verde-limao);
+}
+
+.brilho {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.brilho:hover,
+.brilho.active {
+  color: var(--verde-limao) !important;
+}
+
+.brilho:hover::after,
+.brilho.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #7CBF42, #5B944D);
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+  animation: brilhoAnim 1.5s infinite alternate;
+}
+
+@keyframes brilhoAnim {
+  0% {
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.contato-container {
+  max-width: 95%;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+.contato-title {
+  text-align: center;
+  color: var(--verde-limao);
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  user-select: none;
+  text-shadow:
+    0 0 5px rgba(124, 191, 66, 0.7),
+    0 0 10px rgba(124, 191, 66, 0.5);
+}
+
+.section-title {
+  color: var(--roxo-escuro);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.box-contato,
+.box-feedback {
+  background-color: var(--cinza-claro);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(69, 38, 95, 0.1);
+}
+
+.delivery-box {
+  background-color: #fff;
+  border-left: 5px solid var(--verde-limao);
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button[type="submit"] {
+  background-color: var(--verde-limao);
+  color: var(--branco);
+  font-weight: bold;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--verde-folha);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .contato-container {
+    padding: 1rem;
+  }
+
+  .contato-title {
+    font-size: 2.2rem;
+  }
+}
