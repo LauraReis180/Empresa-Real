@@ -127,8 +127,9 @@ footer {
 }
 
 .footer-info a {
-  color: var(--verde-limao);
+  color: var(--verde-limao) !important;
   text-decoration: none;
+  transition: text-decoration 0.3s ease;
 }
 
 .footer-info a:hover {
