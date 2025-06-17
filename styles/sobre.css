@@ -5,6 +5,7 @@
   --branco: #ffffff;
 }
 
+/* Estilo geral */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -14,81 +15,63 @@ body {
   flex-direction: column;
 }
 
-/* Fundo com vídeo */
-#videoFundo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  object-fit: cover;
-}
 
-/* Navbar roxa */
+
+/* Header */
 .bg-roxo {
-  background-color: #45265F !important;
+  background-color: var(--roxo-escuro) !important;
 }
-
-/* Efeito de brilho nos links do menu */
-.brilho {
+.navbar {
+  min-height: 80px;
+}
+.navbar .nav-link {
   position: relative;
+  color: var(--branco);
   transition: color 0.3s ease;
 }
-
-.brilho::after {
+.navbar .nav-link::after {
   content: '';
   position: absolute;
-  width: 0%;
-  height: 2px;
   left: 0;
-  bottom: 0;
-  background-color: #7CBF42;
-  transition: width 0.4s ease;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--verde-limao);
+  transition: width 0.3s ease;
 }
-
-.brilho:hover::after {
+.navbar .nav-link:hover::after {
   width: 100%;
 }
+.navbar .nav-link:hover {
+  color: var(--verde-limao) !important;
+}
 
-/* Título da página com roxo e animação */
+/* Conteúdo da página (“sobre”) */
 .titulo-rotadoacai {
   font-size: 2.8rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.5);
-  font-weight: bold;
-  animation: pulsar 2s ease-in-out infinite;
-}
+color: #404142;
+text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.5);
+font-weight: 500;
+animation: pulsar 2s ease-in-out infinite;
 
-/* Animação pulsante */
+}
 @keyframes pulsar {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.02); }
+  0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.85; transform: scale(1.02); }
   100% { opacity: 1; transform: scale(1); }
 }
-
-/* Ícone de açaí (está embutido no título agora) */
-.icone-titulo {
-  font-size: 2rem;
-}
-
-/* Frase de destaque */
 .frase-destaque {
   font-size: 1.3rem;
   font-weight: 600;
-  color: rgba(91, 68, 120, 0.8);
+  color: #7CBF42(68, 120, 100, 0.8);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
-
-/* Card branco elegante */
 .conteudo-card {
   background-color: #ffffff;
   max-width: 900px;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-
-/* Corpo do texto */
 .texto-corpo {
   font-size: 1.1rem;
   text-align: justify;
@@ -97,10 +80,28 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Rodapé */
+/* Rodapé igual ao index */
 footer.bg-roxo {
-  background-color: #45265F !important;
-  color: white;
+  background-color: var(--roxo-escuro);
+  color: var(--branco);
+  font-size: 0.95rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.footer-info {
+  margin: 0.3rem 0;
+  text-align: center;
+  color: var(--branco);
+}
+.footer-info a {
+  color: var(--verde-limao);
+  text-decoration: none;
+}
+.footer-info a:hover {
+  text-decoration: underline;
+}
+footer h5, footer h6 {
+  color: var(--branco);
 }
 
 /* Responsivo */
@@ -108,29 +109,24 @@ footer.bg-roxo {
   .titulo-rotadoacai {
     font-size: 2rem;
   }
-
   .conteudo-card {
     padding: 2rem;
   }
+  .navbar-brand img {
+    width: 45px;
+    height: 45px;
+  }
+  .footer-info {
+    font-size: 0.85rem;
+  }
 }
 
-/* Garantir cabeçalho acima do vídeo */
+/* Z‑index */
 header {
   position: relative;
   z-index: 10;
 }
-
 main {
   position: relative;
   z-index: 5;
-}
-
-.navbar-brand img {
-  width: 40px;
-  height: auto;
-}
-
-.navbar {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }

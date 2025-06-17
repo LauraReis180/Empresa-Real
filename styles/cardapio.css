@@ -1,177 +1,214 @@
+/* =============================== */
+/* Variáveis de cores (Paleta) */
 :root {
   --verde-limao: #7CBF42;
   --verde-folha: #5B944D;
   --roxo-escuro: #45265F;
   --branco: #ffffff;
-  --cinza-claro: #f9f9f9;
 }
 
+/* =============================== */
+/* Estilos Gerais (body, fontes, cores) */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  color: var(--roxo-escuro);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   background-color: var(--branco);
+  color: #333;
 }
 
-header, footer {
-  background-color: var(--roxo-escuro);
-  color: var(--branco);
+/* =============================== */
+/* Cabeçalho - Navbar */
+/* (NÃO MODIFICAR, mantém o fundo roxo e cores originais) */
+.bg-roxo {
+  background-color: var(--roxo-escuro) !important;
 }
 
 .navbar {
-  background-color: var(--roxo-escuro) !important;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
+  min-height: 60px;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: var(--branco);
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
 }
 
 .navbar-brand img {
-  height: 50px;
-  width: auto;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
 }
 
-.navbar-nav .nav-link {
+.navbar-toggler {
+  border-color: var(--branco);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.nav-link {
   color: var(--branco);
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover {
-  color: var(--verde-limao);
-}
-
-/* Menu com brilho */
-.brilho {
   position: relative;
   transition: color 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.brilho:hover,
-.brilho.active {
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--verde-limao);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
   color: var(--verde-limao) !important;
 }
 
-.brilho:hover::after,
-.brilho.active::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #7CBF42, #5B944D);
-  bottom: 0;
-  left: 0;
-  border-radius: 2px;
-  animation: brilhoAnim 1.5s infinite alternate;
-}
-
-@keyframes brilhoAnim {
-  0% {
-    opacity: 0.3;
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-/* Conteúdo Cardápio */
-main.cardapio-container {
-  max-width: 1000px;
-  margin: 3rem auto 4rem;
+/* =============================== */
+/* Conteúdo do Cardápio */
+.cardapio-container {
+  max-width: 900px;
+  margin: 2rem auto;
   padding: 0 1rem;
-  background-color: var(--cinza-claro);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(69, 38, 95, 0.15);
 }
 
-h1.cardapio-title {
-  text-align: center;
-  color: var(--verde-limao);
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  user-select: none;
-  text-shadow:
-     0 0 5px rgba(124, 191, 66, 0.7),
-     0 0 10px rgba(124, 191, 66, 0.5);
+.cardapio-title {
+  font-size: 2.8rem;
+  color: #404142;
+  text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.5);
+  font-weight: 500;
+  animation: pulsar 2s ease-in-out infinite;
+  text-align: center; /* centraliza o texto horizontalmente */
 }
 
 .section-title {
-  font-size: 2rem;
-  margin-top: 2rem;
+  color: var(--roxo-escuro);
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
-  border-bottom: 3px solid var(--verde-folha);
-  padding-bottom: 0.3rem;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  border-bottom: 3px solid var(--verde-limao);
+  display: inline-block;
+  padding-bottom: 0.25rem;
 }
 
 .cardapio-list {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
   margin: 0;
 }
 
+/* Itens do cardápio com espaçamento e hover */
 .cardapio-list li {
-  background-color: var(--branco);
-  margin-bottom: 12px;
-  padding: 15px 20px;
+  background-color: #f9f9f9;
+  padding: 1rem 1.25rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(91, 148, 77, 0.15);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efeito quando passar o mouse */
 .cardapio-list li:hover {
   background-color: var(--verde-limao);
-  color: var(--branco);
-  cursor: default;
+  box-shadow: 0 5px 12px rgba(124, 191, 66, 0.6);
 }
 
+.cardapio-list li:hover .nome-item,
 .cardapio-list li:hover .descricao {
-  color: #dcecd1;
+  color: var(--branco);
 }
 
 .nome-item {
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--roxo-escuro);
 }
 
 .descricao {
-  font-style: italic;
-  font-size: 0.9rem;
-  color: #666666;
-  margin-left: 1rem;
-  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #555;
+  max-width: 300px;
+  text-align: right;
 }
 
-.preco {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-left: 1rem;
-  white-space: nowrap;
+/* Ajuste para os itens sem descrição */
+.cardapio-list li > div.nome-item:only-child {
+  max-width: 100%;
 }
 
+/* Parágrafos nas seções */
+.cardapio-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem 1.5rem; /* aumento o padding pra dar espaço interno */
+  border: 1px solid #dcdcdc; /* cinza clarinho */
+  border-radius: 12px;
+  background-color: #fff; /* garante fundo branco */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* sombra bem suave para destacar */
+}
+
+
+/* =============================== */
+/* Rodapé */
+/* (NÃO MODIFICAR, mantém fundo roxo e cores originais) */
+footer.bg-roxo {
+  background-color: var(--roxo-escuro);
+  color: var(--branco);
+  font-size: 0.95rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.footer-info {
+  margin: 0.3rem 0;
+  color: var(--branco);
+}
+
+.footer-info a {
+  color: var(--verde-limao) !important;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+footer h5,
+footer h6 {
+  color: var(--branco);
+}
+
+.row.justify-content-center > div {
+  margin-bottom: 1rem;
+}
+
+/* =============================== */
 /* Responsividade */
 @media (max-width: 768px) {
-  main.cardapio-container {
-    margin: 2rem 1rem 3rem;
-    padding: 1rem;
-  }
-
-  h1.cardapio-title {
-    font-size: 2.2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
+  .cardapio-container {
+    padding: 0 1rem;
   }
 
   .cardapio-list li {
@@ -179,13 +216,19 @@ h1.cardapio-title {
     align-items: flex-start;
   }
 
-  .preco {
-    margin-left: 0;
-    margin-top: 0.4rem;
+  .descricao {
+    text-align: left;
+    max-width: 100%;
+    margin-top: 0.3rem;
   }
 
-  .descricao {
-    margin-left: 0;
-    margin-top: 0.3rem;
+  .navbar-brand img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbar {
+    min-height: 55px;
+    padding: 0.4rem 1rem;
   }
 }

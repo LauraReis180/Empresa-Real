@@ -9,12 +9,14 @@
 </head>
 <body>
 
+  
 
+  <!-- Cabeçalho igual ao do index -->
   <header>
     <nav class="navbar navbar-expand-lg bg-roxo shadow">
-      <div class="container">
-        <a class="navbar-brand text-light fw-bold" href="index.html">
-          <img src="../images/logo imagem.png" alt="Logo Rota do Açaí" class="me-2" />
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-light fw-bold d-flex align-items-center" href="../index.html">
+          <img src="../images/logo imagem.png" alt="Logo Rota do Açaí" width="50" height="50" class="me-2"/>
           Rota do Açaí
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -23,40 +25,58 @@
         <div class="collapse navbar-collapse justify-content-end" id="menu">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link text-light brilho" href="../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-light brilho" href="pages/sobre.html">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link text-light brilho active" href="pages/cardapio.html">Cardápio</a></li>
-            <li class="nav-item"><a class="nav-link text-light brilho" href="pages/experiencia.html">Experiência</a></li>
-            <li class="nav-item"><a class="nav-link text-light brilho" href="pages/contato.html">Contato</a></li>
+            <li class="nav-item"><a class="nav-link text-light brilho active" href="sobre.html">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link text-light brilho" href="cardapio.html">Cardápio</a></li>
+            <li class="nav-item"><a class="nav-link text-light brilho" href="experiencia.html">Experiência</a></li>
+            <li class="nav-item"><a class="nav-link text-light brilho" href="contato.html">Contato</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
+  <!-- Conteúdo da página, intacto -->
   <main class="sobre-page container my-5">
     <h1 class="titulo-rotadoacai text-center mb-4">
-      🍧 Rota do Açaí
+      🍧 Sobre Nós 
     </h1>
 
     <div class="card conteudo-card mx-auto p-5">
       <p class="frase-destaque text-center mb-4">
         Mais do que sabor, somos a Rota da Felicidade
       </p>
-
       <p class="texto-corpo">A <strong>Rota do Açaí</strong> nasceu em Santa Maria Norte (DF), com a missão de transformar momentos simples em experiências únicas e saborosas. Valorizamos cada detalhe: da escolha dos ingredientes à forma como entregamos seu pedido — com carinho e excelência.</p>
-
       <p class="texto-corpo">Nosso diferencial é o <strong>açaí personalizado</strong>. Você pode montar do seu jeito: açaí tradicional, black ou com frutas, com uma variedade incrível de complementos — tudo fresquinho e preparado na hora.</p>
-
       <p class="texto-corpo">Temos orgulho de atender com rapidez e qualidade através do nosso delivery exclusivo. Entregamos para <strong>Santa Maria Norte, Santa Maria Sul, Total Ville e Sítio do Gama</strong>, levando o melhor do açaí até você.</p>
-
       <p class="texto-corpo">Mais do que vender açaí, queremos criar memórias, oferecer afeto em forma de sabor e estar presente nos momentos felizes da sua vida.</p>
-
       <p class="texto-corpo mt-4 text-center fw-semibold text-success">Rota do Açaí — a rota da sua felicidade!</p>
     </div>
   </main>
 
-  <footer class="text-center text-light mt-auto bg-roxo py-3">
-    <p class="mb-0">© 2025 Rota do Açaí. Todos os direitos reservados.</p>
+  <!-- Rodapé igual ao do index -->
+  <footer class="bg-roxo text-light text-center py-4">
+    <div class="container">
+      <h5 class="fw-bold mb-3">Rota do Açaí</h5>
+      <p class="footer-info">🍧 <strong>A Rota da Sua Felicidade</strong></p>
+      <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-4 mb-2">
+          <h6 class="text-uppercase fw-bold">📍 Onde estamos</h6>
+          <p class="footer-info">QR 316, Conjunto P, Lote 27<br>Santa Maria Norte - DF</p>
+        </div>
+        <div class="col-12 col-md-4 mb-2">
+          <h6 class="text-uppercase fw-bold">⏰ Horário de Funcionamento</h6>
+          <p class="footer-info">Segunda a Sábado: 10h - 20h<br>Domingo: 10h - 18h</p>
+        </div>
+        <div class="col-12 col-md-4 mb-2">
+          <h6 class="text-uppercase fw-bold">📱 Redes Sociais</h6>
+          <p class="footer-info">
+            <a href="https://www.instagram.com/rotadoacai12" target="_blank">@rotadoacai12</a>
+          </p>
+        </div>
+      </div>
+      <hr class="border-light my-3" />
+      <p class="mb-0 small">&copy; 2025 Rota do Açaí. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

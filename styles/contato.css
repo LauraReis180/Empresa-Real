@@ -1,155 +1,177 @@
+/* ===== PALETA DE CORES ===== */
 :root {
   --verde-limao: #7CBF42;
   --verde-folha: #5B944D;
   --roxo-escuro: #45265F;
   --branco: #ffffff;
-  --cinza-claro: #f9f9f9;
 }
 
+/* ===== ESTILO GERAL ===== */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   color: var(--roxo-escuro);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--branco);
+  background-color: #f8f9fa; /* fundo claro para contraste */
+  overflow-x: hidden; /* evita barra horizontal */
 }
 
-header, footer {
-  background-color: var(--roxo-escuro);
-  color: var(--branco);
-}
-
+/* ===== NAVBAR ===== */
 .navbar {
-  background-color: var(--roxo-escuro) !important;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
+  min-height: 60px;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  background-color: var(--roxo-escuro);
 }
 
-.navbar-brand img {
-  height: 50px;
-  width: auto;
-}
-
-.navbar-nav .nav-link {
+.navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 1.4rem;
   color: var(--branco);
-  font-weight: 600;
-  transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover {
+.navbar .navbar-brand img.logo {
+  max-height: 50px;
+  margin-right: 0.5rem;
+}
+
+.navbar .nav-link {
+  color: var(--branco);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar .nav-link.brilho:hover,
+.navbar .nav-link.brilho.active {
   color: var(--verde-limao);
 }
 
-.brilho {
-  position: relative;
-  transition: color 0.3s ease;
+.navbar .nav-link.brilho::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--verde-limao);
+  transition: width 0.3s ease;
 }
 
-.brilho:hover,
-.brilho.active {
+.navbar .nav-link.brilho:hover::after,
+.navbar .nav-link.brilho.active::after {
+  width: 100%;
+}
+
+/* Força a cor verde no link ativo mesmo com text-light */
+.navbar .nav-link.brilho.active,
+.navbar .nav-link.brilho.active:hover {
   color: var(--verde-limao) !important;
 }
 
-.brilho:hover::after,
-.brilho.active::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #7CBF42, #5B944D);
-  bottom: 0;
-  left: 0;
-  border-radius: 2px;
-  animation: brilhoAnim 1.5s infinite alternate;
-}
-
-@keyframes brilhoAnim {
-  0% {
-    opacity: 0.3;
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-.contato-container {
-  max-width: 95%;
-  margin: 3rem auto;
+/* ===== BOXES DE CONTEÚDO ===== */
+.box-contato,
+.box-feedback {
+  background-color: #ffffff;
+  border-radius: 1rem;
   padding: 2rem;
-}
-
-.contato-title {
-  text-align: center;
-  color: var(--verde-limao);
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  user-select: none;
-  text-shadow:
-    0 0 5px rgba(124, 191, 66, 0.7),
-    0 0 10px rgba(124, 191, 66, 0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: var(--roxo-escuro);
 }
 
 .section-title {
+  font-weight: 700;
+  font-size: 1.6rem;
   color: var(--roxo-escuro);
-  font-weight: bold;
-  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.box-contato,
-.box-feedback {
-  background-color: var(--cinza-claro);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(69, 38, 95, 0.1);
-}
-
+/* ===== DELIVERY BOX ===== */
 .delivery-box {
-  background-color: #fff;
-  border-left: 5px solid var(--verde-limao);
+  background-color: var(--verde-limao);
+  color: #222;
+  font-weight: 700;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  user-select: none;
 }
 
-input[type="text"],
-input[type="email"],
-textarea,
-select {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.delivery-box p {
+  margin: 0.2rem 0;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-button[type="submit"] {
+/* ===== BOTÃO ENVIAR FEEDBACK ===== */
+.btn-verde-limao {
   background-color: var(--verde-limao);
   color: var(--branco);
-  font-weight: bold;
-  padding: 0.75rem;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: var(--verde-folha);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 1.1rem;
 }
 
+.btn-verde-limao:hover {
+  background-color: #679f36; /* verde mais escuro no hover */
+}
+
+/* ===== FORMULÁRIO ===== */
+.form-label {
+  font-weight: 600;
+  color: var(--roxo-escuro);
+}
+
+.form-control:focus {
+  border-color: var(--verde-limao);
+  box-shadow: 0 0 5px var(--verde-limao);
+}
+
+/* ===== RODAPÉ ===== */
+footer.bg-roxo {
+  background-color: var(--roxo-escuro);
+  color: var(--branco);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+footer h5,
+footer h6 {
+  color: var(--branco);
+  font-weight: 700;
+}
+
+.footer-info {
+  margin: 0.3rem 0;
+  color: var(--branco);
+}
+
+.footer-info a {
+  color: var(--verde-limao) !important;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+hr.border-light {
+  border-color: var(--branco);
+  opacity: 0.2;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
-  .contato-container {
-    padding: 1rem;
+  .navbar .navbar-brand img.logo {
+    max-height: 40px;
   }
 
-  .contato-title {
-    font-size: 2.2rem;
+  .box-contato,
+  .box-feedback {
+    padding: 1.5rem 1rem;
   }
 }

@@ -12,41 +12,28 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #fff; /* fundo branco */
 }
 
-/* Fundo com vídeo */
-#videoFundo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  object-fit: cover;
-}
-
-/* Garantir que conteúdo apareça sobre o vídeo */
-header, main {
-  position: relative;
-  z-index: 10;
-}
-
-/* Navbar padrão */
+/* Navbar background roxo */
 .bg-roxo {
   background-color: var(--roxo-escuro) !important;
 }
 
-.navbar-brand img {
+/* Logo do cabeçalho ajustada */
+.logo-header {
   width: 40px;
   height: auto;
 }
 
-.brilho {
+/* Efeito de brilho e cor verde nos links do menu */
+.navbar-nav .nav-link {
   position: relative;
   transition: color 0.3s ease;
+  color: var(--branco);
 }
 
-.brilho::after {
+.navbar-nav .nav-link::after {
   content: '';
   position: absolute;
   width: 0%;
@@ -57,42 +44,74 @@ header, main {
   transition: width 0.4s ease;
 }
 
-.brilho:hover::after {
+.navbar-nav .nav-link:hover::after {
   width: 100%;
 }
 
-/* Título com elegância */
+.navbar-nav .nav-link:hover {
+  color: var(--verde-limao);
+}
+
+/* COR VERDE FIXA NA PÁGINA ATIVA (Ex: Experiência) */
+.navbar-nav .nav-link.active {
+  color: var(--verde-limao) !important;
+}
+
+/* Título da página Experiência */
 .titulo-experiencia {
-  font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.4);
-  animation: pulsar 2s ease-in-out infinite;
+  font-size: 2.8rem;
+color: #404142;
+text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.5);
+font-weight: 500;
+animation: pulsar 2s ease-in-out infinite;
 }
 
 /* Card do conteúdo */
 .experiencia-card {
-  background-color: #ffffff;
+  background-color: #fff;
   max-width: 900px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  color: #333;
 }
 
 /* Texto principal */
 .texto-corpo {
   font-size: 1.1rem;
   text-align: justify;
-  color: #333;
   line-height: 1.8;
   margin-bottom: 1rem;
+}
+
+.texto-corpo.text-success {
+  color: var(--verde-limao);
+  font-weight: 600;
 }
 
 /* Rodapé */
 footer.bg-roxo {
   background-color: var(--roxo-escuro) !important;
-  color: white;
+  color: var(--branco);
 }
 
-/* Animação */
+.footer-info {
+  color: var(--branco);
+  font-size: 0.9rem;
+}
+
+.footer-info a {
+  color: var(--verde-limao) !important;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+
+.footer-info a:hover {
+  color: #a2d12e;
+  text-decoration: underline;
+}
+
+/* Animação do título */
 @keyframes pulsar {
   0% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.9; transform: scale(1.03); }

@@ -58,7 +58,13 @@ body {
 .navbar .nav-link:hover {
   color: var(--verde-limao) !important;
 }
-
+.titulo-secao {
+  font-size: 2.8rem;
+color: #404142;
+text-shadow: 2px 2px 6px rgba(69, 38, 95, 0.5);
+font-weight: 500;
+animation: pulsar 2s ease-in-out infinite;
+}
 /* Carrossel */
 .banner-carousel {
   width: 100%;
